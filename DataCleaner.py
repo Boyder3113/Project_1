@@ -22,13 +22,13 @@ def findProbGenres(songList):
     for genre in problemGenres:
         print(genre)
 
-for song in songList:
-    song.append(song[3])
-
 def simplifyGenres():
     opFile = open("top10s.csv", "r")
     csvReader = csv.reader(opFile)
     songList = list(csvReader)
+
+    for song in songList:
+        song.append(song[3])
 
     for song in songList:
         if song[15] in pop:
