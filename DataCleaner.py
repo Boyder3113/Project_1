@@ -1,6 +1,6 @@
 import csv
 
-goalGenres = ["pop", "rock", "edm", "hip hop", "latin", "folk", "soul", "international pop"]
+goalGenres = ["pop", "rock", "edm", "hip hop", "latin", "folk", "soul", "international pop", "simple genres", "simplified genres"]
 
 pop = ["barbadian pop", "candy pop"]
 edm = ["dance pop", "electropop", "big room", "house", "permanent wave", "complextro", "electro", "metropopolis",
@@ -12,8 +12,9 @@ folk = ["neo mellow", "acustic pop", "baroque pop", "alaska indie", "acoustic po
         "irish singer-songwriter", "downtempo", "contemporary country"]
 interpop = ["canadian pop","australian pop", "colombian pop", "tropical house", "danish pop", "french indie pop",
             "canadian latin", "british soul", "moroccan pop"]
+simgen = ["top genre"]
 
-def findProbGenres(songList):
+def probGen(songList):
     problemGenres = []
     for song in songList:
         if song[15] not in goalGenres:
@@ -22,7 +23,7 @@ def findProbGenres(songList):
     for genre in problemGenres:
         print(genre)
 
-def simplifyGenres():
+def simGen():
     opFile = open("top10s.csv", "r")
     csvReader = csv.reader(opFile)
     songList = list(csvReader)
@@ -31,6 +32,8 @@ def simplifyGenres():
         song.append(song[3])
 
     for song in songList:
+        if song[15] in simgen:
+            song[15] = "simplified genres"
         if song[15] in pop:
             song[15] = "pop"
         if song[15] in edm:
@@ -47,3 +50,7 @@ def simplifyGenres():
     with open("nueTopTens.csv", "w", newline="") as f:
         writer = csv.writer(f)
         writer.writerows(songList)
+    return songList
+
+songList = simGen()
+probGen(songList)
