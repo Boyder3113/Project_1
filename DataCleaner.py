@@ -51,6 +51,3 @@ def simGen():
         writer = csv.writer(f)
         writer.writerows(songList)
     return songList
-
-songList = simGen()
-probGen(songList)
