@@ -1,9 +1,10 @@
 import csv
 
 goalGenres = ["pop", "rock", "edm", "hip hop", "latin", "folk", "soul", "international pop", "simple genres", "simplified genres"]
+simgen = ["top genre"]
 
-pop = ["barbadian pop", "candy pop"]
-edm = ["dance pop", "electropop", "big room", "house", "permanent wave", "complextro", "electro", "metropopolis",
+pop = ["barbadian pop", "candy pop", "dance pop"]
+edm = ["electropop", "big room", "house", "permanent wave", "complextro", "electro", "metropopolis",
        "australian dance", "hollywood", "belgian edm", "electronic trap", "electro house", "brostep"]
 rock = ["indie pop", "art pop", "boy band", "celtic rock", "escape room"]
 hiphop = ["detroit hip hop", "hip pop", "atl hip hop", "chicago rap", "canadian hip hop", "australian hip hop",
@@ -12,7 +13,7 @@ folk = ["neo mellow", "acustic pop", "baroque pop", "alaska indie", "acoustic po
         "irish singer-songwriter", "downtempo", "contemporary country"]
 interpop = ["canadian pop","australian pop", "colombian pop", "tropical house", "danish pop", "french indie pop",
             "canadian latin", "british soul", "moroccan pop"]
-simgen = ["top genre"]
+
 
 def probGen(songList):
     problemGenres = []
@@ -51,3 +52,5 @@ def simGen():
         writer = csv.writer(f)
         writer.writerows(songList)
     return songList
+
+simGen()
